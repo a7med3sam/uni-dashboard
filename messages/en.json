@@ -1,0 +1,25 @@
+{
+  "Global": {
+    "Sections": {
+      "Table": {
+        "rows_per_page": "Rows per page:",
+        "of": "of",
+        "more_than": "more than"
+      }
+    },
+    "Label": {
+      "no_data": "No data"
+    },
+    "Actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "Branches": {
+    "branchNumber": "Branch Number",
+    "branchName": "Branch Name",
+    "address": "Address",
+    "status": "Status",
+    "actions": "Actions"
+  }
+}

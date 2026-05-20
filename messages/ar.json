@@ -1,0 +1,25 @@
+{
+  "Global": {
+    "Sections": {
+      "Table": {
+        "rows_per_page": "عدد الأسطر في الصفحة:",
+        "of": "من",
+        "more_than": "أكثر من"
+      }
+    },
+    "Label": {
+      "no_data": "لا توجد بيانات"
+    },
+    "Actions": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    }
+  },
+  "Branches": {
+    "branchNumber": "رقم الفرع",
+    "branchName": "اسم الفرع",
+    "address": "العنوان",
+    "status": "الحالة",
+    "actions": "الإجراءات"
+  }
+}
