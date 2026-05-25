@@ -114,7 +114,6 @@ export default function DetailsAds({
         sx={{
           px: { xs: 2, md: 3 },
           pb: 3,
-          overflow: 'hidden',
         }}
       >
         {/* Image */}

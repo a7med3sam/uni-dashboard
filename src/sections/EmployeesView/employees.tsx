@@ -192,7 +192,7 @@ function Employees({
 
               <TextField
                 fullWidth
-                placeholder="الاسم الأول"
+                // placeholder="الاسم الأول"
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     height: 48,
@@ -219,7 +219,7 @@ function Employees({
 
               <TextField
                 fullWidth
-                placeholder="رقم الهاتف"
+                // placeholder="رقم الهاتف"
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     height: 48,
@@ -246,7 +246,7 @@ function Employees({
 
               <TextField
                 fullWidth
-                placeholder="البريد الإلكتروني"
+                // placeholder="البريد الإلكتروني"
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     height: 48,

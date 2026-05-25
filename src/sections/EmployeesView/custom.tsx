@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import {
   Box,
   Button,
@@ -9,6 +10,7 @@ import {
   Divider,
   Stack,
   Typography,
+  TextField,
 } from '@mui/material';
 
 const pages = [
@@ -103,6 +105,8 @@ function Custom() {
 
         <Stack direction="row" sx={{ gap: 2 }}>
           <Button
+            component={Link}
+            href="/employees/add"
             variant="outlined"
             sx={{
               borderColor: '#FF4D4D',
@@ -121,6 +125,8 @@ function Custom() {
           </Button>
 
           <Button
+            component={Link}
+            href="/employees/add"
             variant="contained"
             sx={{
               backgroundColor: '#886CE8',
@@ -154,6 +160,23 @@ function Custom() {
         >
           الصلاحيات
         </Typography>
+
+        <Box sx={{ mb: 4 }}>
+          <Typography sx={{ color: '#1F2937', fontWeight: 600, mb: 1 }}>
+            اسم الدور
+          </Typography>
+          <TextField
+            fullWidth
+            placeholder="اكتب اسم الدور"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '12px',
+                bgcolor: '#fff',
+                minHeight: 52,
+              },
+            }}
+          />
+        </Box>
 
         {/* Header */}
         <Box

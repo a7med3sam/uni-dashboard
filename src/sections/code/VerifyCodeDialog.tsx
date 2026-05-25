@@ -117,13 +117,12 @@ export default function VerifyCodeDialog({
         sx={{
           px: { xs: 2, md: 3 },
           pb: 3,
-          overflow: 'hidden',
         }}
       >
         {/* Image */}
         <Box
           component="img"
-          src="/images/burger.jpg"
+          src="/assets/burger.png"
           alt="advertisement"
           sx={{
             width: '100%',
