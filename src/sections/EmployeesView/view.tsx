@@ -347,7 +347,7 @@ const [openDelete, setOpenDelete] = useState(false);
               >
                 <Stack sx={{ direction: "row", spacing: 1.5, alignItems: "center" }}> 
                   <Avatar
-                    src={row.avatarUrl}
+                    src={"https://i.pravatar.cc/100?img=12"}
                     sx={{
                       width: 40,
                       height: 40,

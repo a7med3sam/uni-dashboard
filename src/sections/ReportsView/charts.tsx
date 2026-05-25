@@ -1,12 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Box, Typography } from "@mui/material";
 import type { ApexOptions } from "apexcharts";
+import ApexChart from "src/components/ApexChart";
 import DashboardCard from "./DashboardCard";
 import { REVENUE_DATA, USAGE_DATA, USAGE_DAYS } from "./constants";
-
-const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const baseOptions: ApexOptions = {
   chart: {
@@ -66,7 +64,7 @@ export function UsageTrendsChart() {
       <Typography sx={{ fontSize: 13, color: "#6B7280", mb: 2 }}>
         أوقات ذروة الاستخدام: 1PM - 3PM
       </Typography>
-      <ReactApexChart
+      <ApexChart
         options={options}
         series={[{ name: "الاستخدام", data: USAGE_DATA }]}
         type="area"
@@ -109,7 +107,7 @@ export function RevenueTrendChart() {
       >
         اتجاه الإيرادات المالية
       </Typography>
-      <ReactApexChart
+      <ApexChart
         options={options}
         series={[{ name: "الإيرادات", data: REVENUE_DATA }]}
         type="bar"

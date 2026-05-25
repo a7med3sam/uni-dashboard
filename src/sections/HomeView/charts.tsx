@@ -1,8 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Box, Typography } from "@mui/material";
 import type { ApexOptions } from "apexcharts";
+import ApexChart from "src/components/ApexChart";
 import DashboardCard from "./DashboardCard";
 import {
   BRANCH_BAR_COLORS,
@@ -13,8 +13,6 @@ import {
   CHART_MONTHS_SECOND,
   MONTH_LABELS,
 } from "./constants";
-
-const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const CHART_FONT = "inherit";
 
@@ -101,7 +99,7 @@ export function DailyCouponUsageChart() {
         title="استخدام الأكواد اليومي"
         subtitle="(+43%) أعلى من الأسبوع الماضي"
       />
-      <ReactApexChart
+      <ApexChart
         options={options}
         series={series}
         type="line"
@@ -140,7 +138,7 @@ export function MonthlyPerformanceChart() {
         title="الأداء الشهري"
         subtitle="(+43%) أعلى من الشهر الماضي"
       />
-      <ReactApexChart
+      <ApexChart
         options={options}
         series={series}
         type="area"
@@ -204,7 +202,7 @@ export function BranchPerformanceChart() {
       >
         مقارنة أداء الفروع
       </Typography>
-      <ReactApexChart
+      <ApexChart
         options={options}
         series={series}
         type="bar"
