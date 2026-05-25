@@ -1,14 +1,20 @@
 "use client";
 
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LoginIcon from "@mui/icons-material/Login";
+import Iconify from "src/components/iconify";
+import NotificationsPopover from "src/components/NotificationsPopover";
 import {
   AppBar,
   Avatar,
-  Badge,
   Box,
   IconButton,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -18,6 +24,17 @@ interface HeaderProps {
 }
 
 export default function Header({ onMenuClick }: HeaderProps) {
+  const router = useRouter();
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+  const handleMenuOpen = (e: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -50,11 +67,9 @@ export default function Header({ onMenuClick }: HeaderProps) {
         </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <IconButton color="inherit">
-            <Badge badgeContent={1} color="error">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          <Iconify icon="emojione:flag-for-saudi-arabia" width={30} />
+
+          <NotificationsPopover />
 
           <Box
             sx={{
@@ -63,20 +78,50 @@ export default function Header({ onMenuClick }: HeaderProps) {
               gap: 1,
               borderLeft: "1px solid rgba(255,255,255,0.3)",
               pl: 2,
+              cursor: "pointer",
             }}
+            onClick={handleMenuOpen}
           >
-            <Avatar sx={{ bgcolor: "#fff", color: "#886ce8" }}>
-              <AccountCircleIcon />
-            </Avatar>
+            <Avatar src="/3d.png" sx={{ width: 36, height: 36, border: "2px solid #fff", }} />
             <Typography
               variant="body2"
               sx={{ color: "#fff", display: { xs: "none", sm: "block" } }}
             >
-              اسم المستخدم
+              المستخدم
             </Typography>
           </Box>
         </Box>
       </Toolbar>
+
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        transformOrigin={{ vertical: "top", horizontal: "left" }}
+        slotProps={{
+          paper: {
+            sx: {
+              mt: 1,
+              minWidth: 180,
+              borderRadius: "12px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+            },
+          },
+        }}
+      >
+        <MenuItem
+          onClick={() => {
+            handleMenuClose();
+            router.push("/auth/login");
+          }}
+        >
+          <ListItemIcon>
+            <LoginIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>تسجيل الدخول</ListItemText>
+        </MenuItem>
+      </Menu>
     </AppBar>
   );
 }

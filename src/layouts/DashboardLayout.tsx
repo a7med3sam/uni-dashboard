@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Box } from "@mui/material";
+import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 
@@ -11,6 +12,12 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const pathname = usePathname();
+  const isAuthPage = pathname?.startsWith("/auth");
+
+  if (isAuthPage) {
+    return <>{children}</>;
+  }
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
