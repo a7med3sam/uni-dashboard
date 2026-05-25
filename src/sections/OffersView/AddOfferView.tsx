@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -27,6 +28,7 @@ interface AddOfferViewProps {
 
 export default function AddOfferView({ mode = "create" }: AddOfferViewProps) {
   const isEdit = mode === "edit";
+  const [codeType, setCodeType] = useState("auto");
 
   return (
     <Box
@@ -123,7 +125,7 @@ export default function AddOfferView({ mode = "create" }: AddOfferViewProps) {
               </Typography>
               <TextField
                 fullWidth
-                placeholder="اكتب الاسم باللغة العربية"
+                // placeholder="اكتب الاسم باللغة العربية"
                 sx={fieldSx}
               />
             </Box>
@@ -134,7 +136,7 @@ export default function AddOfferView({ mode = "create" }: AddOfferViewProps) {
               </Typography>
               <TextField
                 fullWidth
-                placeholder="اكتب الاسم باللغة الانجليزية"
+                // placeholder="اكتب الاسم باللغة الانجليزية"
                 sx={fieldSx}
               />
             </Box>
@@ -147,7 +149,7 @@ export default function AddOfferView({ mode = "create" }: AddOfferViewProps) {
                 fullWidth
                 multiline
                 minRows={4}
-                placeholder="وصف العرض"
+                // placeholder="وصف العرض"
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "12px",
@@ -165,7 +167,7 @@ export default function AddOfferView({ mode = "create" }: AddOfferViewProps) {
                 fullWidth
                 multiline
                 minRows={4}
-                placeholder="وصف العرض بالانجليزية"
+                // placeholder="وصف العرض بالانجليزية"
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "12px",
@@ -179,11 +181,26 @@ export default function AddOfferView({ mode = "create" }: AddOfferViewProps) {
               <Typography sx={{ color: "#1F2937", fontWeight: 600, mb: 1 }}>
                 نوع الكود
               </Typography>
-              <TextField select fullWidth defaultValue="auto" sx={fieldSx}>
+              <TextField
+                select
+                fullWidth
+                value={codeType}
+                onChange={(e) => setCodeType(e.target.value)}
+                sx={fieldSx}
+              >
                 <MenuItem value="auto">توليد تلقائي</MenuItem>
                 <MenuItem value="manual">يدوي</MenuItem>
               </TextField>
             </Box>
+
+            {codeType === "manual" && (
+              <Box>
+                <Typography sx={{ color: "#1F2937", fontWeight: 600, mb: 1 }}>
+                  الكود اليدوي
+                </Typography>
+                <TextField fullWidth sx={fieldSx} />
+              </Box>
+            )}
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 2, pt: 1 }}>
               <Typography sx={{ color: "#1F2937", fontWeight: 600 }}>
