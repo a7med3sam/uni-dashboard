@@ -30,14 +30,14 @@ const items = [
   { label: "إدارة الفروع", icon: "/icons/manage-branch.svg", path: "/branches" },
   { label: "العروض", icon: "/icons/offers.svg", path: "/offers" },
   { label: "إدارة الباقات", icon: "/icons/managepackage.svg", path: "/packages" },
-  { label: "العملاء", icon: "/icons/customer.svg", path: "/clients" },
+  // { label: "العملاء", icon: "/icons/customer.svg", path: "/clients" },
   { label: "إدارة الموظفين", icon: "/icons/manageemploye.svg", path: "/employees" },
   { label: "الاعلانات", icon: "/icons/ads.svg", path: "/advertisements" },
   { label: "إدارة المتابعين", icon: "/icons/manageemploye.svg", path: "/followers" },
   { label: "التقارير", icon: "/icons/reports.svg", path: "/reports" },
   { label: "التحقق من الكود", icon: "/icons/reports.svg", path: "/code" },
   { label: "الدعم الفني", icon: "/icons/suport.svg", path: "/support" },
-  { label: "المحفظة المالية", icon: "/icons/tekat.svg", path: "/financial-wallet" },
+  { label: "المحفظة المالية", icon: "/icons/money.svg", path: "/financial-wallet" },
 ];
 
 function SidebarIcon({ active = false, src }: SidebarIconProps) {
